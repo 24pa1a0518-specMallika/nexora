@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURIX AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">AURIX AI</span>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle">‹</button>
+    </div>
+
+    <div class="mode-switcher">
+      <label class="section-label">Mode</label>
+      <div class="mode-buttons">
+        <button class="mode-btn" id="minimalBtn" data-mode="minimal">
+          <span>⚡</span><span>Minimal</span>
+        </button>
+        <button class="mode-btn active" id="autonomousBtn" data-mode="autonomous">
+          <span>🤖</span><span>Autonomous</span>
+        </button>
+      </div>
+      <p class="mode-desc" id="modeDesc">Multi-step reasoning with tools &amp; planning</p>
+    </div>
+
+    <div class="tools-panel" id="toolsPanel">
+      <label class="section-label">Active Tools</label>
+      <div class="tool-list">
+        <div class="tool-item"><span>🌐</span><span>Wikipedia Search</span><span class="badge">ON</span></div>
+        <div class="tool-item"><span>📄</span><span>PDF Q&amp;A</span><span class="badge">ON</span></div>
+        <div class="tool-item"><span>📚</span><span>Study Planner</span><span class="badge">ON</span></div>
+        <div class="tool-item"><span>📝</span><span>Notes Generator</span><span class="badge">ON</span></div>
+      </div>
+    </div>
+
+    <div class="history-section">
+      <div class="history-header">
+        <label class="section-label">History</label>
+        <button class="clear-btn" id="clearHistory">✕ Clear</button>
+      </div>
+      <div class="history-list" id="historyList">
+        <p class="empty-hint">No chats yet</p>
+      </div>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="free-badge">✅ 100% Free · No API Key · No Login</div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main" id="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="topbar-center">
+        <span class="mode-tag" id="modeTag">🤖 Autonomous Agent</span>
+      </div>
+      <div class="topbar-right">
+        <button class="top-btn" id="newChatBtn">+ New Chat</button>
+        <label class="top-btn" title="Upload PDF">
+          📎 PDF
+          <input type="file" id="pdfInput" accept=".pdf" hidden />
+        </label>
+      </div>
+    </header>
+
+    <div class="pdf-bar" id="pdfBar" style="display:none">
+      <span>📄</span>
+      <span id="pdfFileName">document.pdf</span>
+      <span class="pdf-hint">loaded — ask anything about it</span>
+      <button id="pdfRemove">✕</button>
+    </div>
+
+    <div class="chat-area" id="chatArea">
+      <div class="welcome" id="welcome">
+        <div class="welcome-icon">◈</div>
+        <h1>AURIX AI</h1>
+        <p>Your free autonomous AI assistant — no API key needed, ever.</p>
+        <div class="quick-grid">
+          <button class="quick-btn" data-prompt="Help me create a JEE study plan for the next 30 days covering Physics, Chemistry and Maths">📚 JEE Study Plan</button>
+          <button class="quick-btn" data-prompt="Search Wikipedia and explain quantum computing in simple words">🌐 Wikipedia Search</button>
+          <button class="quick-btn" data-prompt="Generate detailed notes on photosynthesis for EAMCET exam">📝 Generate Notes</button>
+          <button class="quick-btn" data-prompt="Explain how neural networks work step by step with examples">🤖 Explain AI Concepts</button>
+        </div>
+      </div>
+      <div class="messages" id="messages"></div>
+    </div>
+
+    <div class="input-wrap">
+      <div class="input-box">
+        <textarea id="userInput" placeholder="Ask anything… AURIX thinks and answers for free!" rows="1"></textarea>
+        <button class="send-btn" id="sendBtn">▶</button>
+      </div>
+      <p class="input-note">Powered by <strong>Pollinations AI</strong> · Free · No signup · Works for everyone 🌍</p>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
